@@ -172,3 +172,5 @@ function buttonWorks() {
 
 //Clear, Get Balance, Deposit Cash, Withdraw Cash Functions
 
+//Update Display
+function 
