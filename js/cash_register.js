@@ -10,12 +10,26 @@ function storeDisplay(){
 	total = display.value;
 }
 
-function evaluateExpression() {
-	var expressionArray = display.value.split(' ');
 
+function evaluateExpression() {
+
+	var expressionArray = display.value.split(' ');
+	
+	
 	function invalidateMultipleOperators(val){
 
-		var indices = expressionArray.indexOf()
+		for (var i = 0; i < expressionArray.length; i++) {
+			
+			var indices = [];
+			
+			indices.push(expressionArray[i].indexOf('+'));
+			
+			console.log(indices);
+			if (indices.length > 1) {
+				display.value = "One expression only, please";
+				break;
+			}
+		}
 	}
 	
 	if (expressionArray[1] === '+') {
