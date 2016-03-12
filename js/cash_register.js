@@ -15,22 +15,21 @@ function evaluateExpression() {
 
 	var expressionArray = display.value.split(' ');
 	
-	
-	function invalidateMultipleOperators(val){
+	//Check if there is more than one operator in the expression
+	function invalidateMultipleOperators(){
 
+		var indices = [];
 		for (var i = 0; i < expressionArray.length; i++) {
-			
-			var indices = [];
-			
 			indices.push(expressionArray[i].indexOf('+'));
-			
-			console.log(indices);
-			if (indices.length > 1) {
-				display.value = "One expression only, please";
-				break;
 			}
-		}
+			
+			if (indices.length > 1) {
+				display.value = "One expression only, please!";
+			}
+			return false;
 	}
+	
+	invalidateMultipleOperators();
 	
 	if (expressionArray[1] === '+') {
 		display.value = calc.add(Number(expressionArray[0]), Number(expressionArray[2]));
