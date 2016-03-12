@@ -2,66 +2,66 @@
 
 var Calculator = function (){
 
-    var _total= 0;
-    var _memory= 0;
+    var total= 0;
+    var memory= 0;
 
 
     function calculateTotal(x){
       if( typeof x !== 'number'){
         throw new Error('not a number'); 
       }
-      _total = x;
-      return _total;
+      total = x;
+      return total;
     }
 
     function getTotal(){
-      return _total;
+      return total;
     }
 
     function add(x){
       if( typeof x !== 'number'){
         throw new Error('not a number'); 
       }
-      _total += x;
-      return _total;
+      total += x;
+      return total;
     }
 
     function subtract(x){
       if( typeof x !== 'number'){
         throw new Error('not a number'); 
       }
-      _total = _total-x; 
-      return _total;
+      total = total-x; 
+      return total;
     }
 
     function multiply(x){
       if( typeof x !== 'number'){
         throw new Error('not a number'); 
       }
-      _total= _total * x;
-      return _total;
+      total= total * x;
+      return total;
     }
 
     function divide(x){
        if( typeof x !== 'number'){
         throw new Error('not a number'); 
       }
-      _total= _total/x;
-      return _total; 
+      total= total/x;
+      return total; 
     }
 
     function recallMemory(){
-      return _memory; 
+      return memory; 
     }
 
     function saveMemory(){
-      _memory = _total;
-      return _memory;
+      memory = total;
+      return memory;
     }
 
     function clearMemory(){
-      _memory = 0;
-      return _memory;
+      memory = 0;
+      return memory;
     }
     
     return{
