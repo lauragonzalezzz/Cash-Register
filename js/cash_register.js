@@ -11,11 +11,13 @@ function storeDisplay(){
 }
 
 function evaluateExpression() {
-	
-	//var expressionString = display.value.toString();
-	
 	var expressionArray = display.value.split(' ');
 
+	function invalidateMultipleOperators(val){
+
+		var indices = expressionArray.indexOf()
+	}
+	
 	if (expressionArray[1] === '+') {
 		display.value = calc.add(Number(expressionArray[0]), Number(expressionArray[2]));
 	} else if (expressionArray[1] === '-') {
