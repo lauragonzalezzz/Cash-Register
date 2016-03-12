@@ -1,9 +1,9 @@
 
 
-var Calculator = function (){
+function calcModule(){
 
-    var total= 0;
-    var memory= 0;
+    var total = 0;
+    var memory = 0;
 
 
     function calculateTotal(x){
@@ -18,35 +18,35 @@ var Calculator = function (){
       return total;
     }
 
-    function add(x){
-      if( typeof x !== 'number'){
-        throw new Error('not a number'); 
-      }
-      total += x;
+    function add(a, b){
+      // if( typeof x !== 'number'){
+      //   throw new Error('not a number'); 
+      // }
+      total = a + b;
       return total;
     }
 
-    function subtract(x){
-      if( typeof x !== 'number'){
-        throw new Error('not a number'); 
-      }
-      total = total-x; 
+    function subtract(a, b){
+      // if( typeof x !== 'number'){
+      //   throw new Error('not a number'); 
+      // }
+      total = a - b; 
       return total;
     }
 
-    function multiply(x){
-      if( typeof x !== 'number'){
-        throw new Error('not a number'); 
-      }
-      total= total * x;
+    function multiply(a, b){
+      // if( typeof x !== 'number'){
+      //   throw new Error('not a number'); 
+      // }
+      total= a * b;
       return total;
     }
 
-    function divide(x){
-       if( typeof x !== 'number'){
-        throw new Error('not a number'); 
-      }
-      total= total/x;
+    function divide(a, b){
+      //  if( typeof x !== 'number'){
+      //   throw new Error('not a number'); 
+      // }
+      total = a / b;
       return total; 
     }
 
@@ -64,6 +64,7 @@ var Calculator = function (){
       return memory;
     }
     
+
     return{
       load: calculateTotal, 
       getTotal: getTotal,
