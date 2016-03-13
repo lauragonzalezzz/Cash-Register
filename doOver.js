@@ -25,15 +25,21 @@ function cashRegister(){
 			secondNum += this.id;
 			output = secondNum;
 			selectEval();
-			clearOutput();
-			firstNum = 0;
-			operator = 0;
-			secondNum = 0;
+			clearEverything();
+		} else {
+			throw new Error('Oh noes!');
 		}
  	}
 
 	function clearOutput(){
 		output = null;
+	}
+
+	function clearEverything(){
+		output = null;
+		firstNum = null;
+		operator = 0;
+		secondNum = 0;
 	}
 
 // key onclick registers to output until operator !!vaidate if input === null, input = key, otherwise += key
