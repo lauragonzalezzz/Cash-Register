@@ -1,22 +1,24 @@
 
 
 function calcModule(){
+  var total = 0;
+  var memory = 2;
 
-    var total = 0;
-    var memory = 0;
 
-
-    function calculateTotal(x){
-      if( typeof x !== 'number'){
-        throw new Error('not a number'); 
-      }
-      total = x;
-      return total;
+  function load(x){
+    if( typeof x !== 'number'){
+      throw new Error('not a number'); 
     }
+      
+    total = x;
+    display.value = total;
+    console.log('total = ', total);
+    return display.value;
+  }
 
-    function getTotal(){
-      return total;
-    }
+  function getTotal(){
+   return total;
+  }
 
     function add(a, b){
       // if( typeof x !== 'number'){
@@ -66,7 +68,7 @@ function calcModule(){
     
 
     return{
-      load: calculateTotal, 
+      load: load, 
       getTotal: getTotal,
       add: add,
       subtract: subtract,

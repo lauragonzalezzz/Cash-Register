@@ -1,48 +1,71 @@
 var calc = calcModule();
+var total = calc.getTotal();
+console.log(total);
+var memory = calc.recallMemory
+console.log('calc.recallMemory = ', calc.recallMemory());
+
+var display = document.getElementById('display');
+display.value = null;
 
 //Put number in the display
 function displayNumber() {
 	display.value += this.id;
 }
 
-// //Store number to memory for calculation
-// function storeDisplay(){
-// 	total = display.value;
-// }
-
 //Get Balance Functionality
 function getBalance() {
 	display.value = calc.recallMemory();
 }
-console.log(calc.recallMemory());
-console.log(display.value);
+
 
 //Check if there is more than one operator in the expression
-function invalidateMultipleOperators(){
-var expressionArray = display.value.split(' ');
+// function invalidateMultipleOperators(){
 
-	var indices = [];
+// 	var indices = [];
 	
-	for (var i = 0; i < expressionArray.length; i++) {
-		indices.push(expressionArray[i].indexOf('+'));
-		}
+// 	for (var i = 0; i < expressionArray.length; i++) {
+// 		indices.push(expressionArray[i].indexOf('+'));
+// 		}
 			
-		if (indices.length > 2) {
-			display.value = "One expression only, please!";
-		}
-		return evaluateExpression(expressionArray);
-}
+// 		if (indices.length > 1) {
+// 			display.value = "One expression only, please!";
+// 		}
+// 		return evaluateExpression(expressionArray);
+// }
 
-		function evaluateExpression(arr) {
+
+// function invalidateMultipleOperators(func){
+// 	return function(val) {
+// 		var expressionArray = display.value.split(' ');
+// 		var indices = [];
+
+// 		for (var i = 0; i < expressionArray.length; i++) {
+// 			indices.push(expressionArray[i].indexOf('+'));
+
+// 			if (indices.length > 1); {
+// 				throw new Error("One Expression Only, Please");
+// 			} else {
+// 				return func(val);
+// 			}
+
+// 		}		
+// 	}
+// }
+
+		function evaluateExpression() {
 					
-			if (arr[1] === '+') {
-				display.value = calc.add(Number(arr[0]), Number(arr[2]));
-			} else if (arr[1] === '-') {
-				display.value = calc.subtract(Number(arr[0]), Number(arr[2]));
-			} else if (arr[1] === '*') {
-				display.value = calc.multiply(Number(arr[0]), Number(arr[2]));
-			} else if (arr[1] === '/') {
-				display.value = calc.divide(Number(arr[0]), Number(arr[2]));
+var expressionArray = display.value.split(' ');
+			
+			if (expressionArray[1] === '+') {
+				var sum = calc.add(Number(expressionArray[0]), Number(expressionArray[2]));
+				return calc.load(sum);
+
+			} else if (expressionArray[1] === '-') {
+				display.value = calc.subtract(Number(expressionArray[0]), Number(expressionArray[2]));
+			} else if (expressionArray[1] === '*') {
+				display.value = calc.multiply(Number(expressionArray[0]), Number(expressionArray[2]));
+			} else if (expressionArray[1] === '/') {
+				display.value = calc.divide(Number(expressionArray[0]), Number(expressionArray[2]));
 			}
 }
 
@@ -56,8 +79,6 @@ var expressionArray = display.value.split(' ');
 function clearTotal() {
 	display.value = null;
 } 
-var display = document.getElementById('display');
-display.value = null;
 
 //Add Event Listeners to EACH button
 //Event Listeners on Numbered Buttons, not 00
@@ -89,5 +110,5 @@ var divide = document.getElementById(' / ');
 divide.addEventListener('click', displayNumber);
 
 var equals = document.getElementById('=');
-equals.addEventListener('click', invalidateMultipleOperators);
+equals.addEventListener('click', evaluateExpression);
 
