@@ -1,0 +1,20 @@
+#calcBody {
+	height: 150px;
+	width: 250px;
+	margin: auto;
+	border: 2px solid gray;
+	padding: 20px;
+	background: lightpink;
+}
+
+#display {
+	margin: 10px;
+	font-family: verdana;
+	font-size: 110%;
+	font-weight: bolder;
+	border: 1px ridge black;
+}
+
+.equals {
+	width: 50px;
+}

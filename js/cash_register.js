@@ -1,20 +1,25 @@
 var calc = calcModule();
-var total = calc.getTotal();
-console.log(total);
-var memory = calc.recallMemory
-console.log('calc.recallMemory = ', calc.recallMemory());
 
 var display = document.getElementById('display');
-display.value = null;
+console.log(typeof display);
+display.value = 0;
+console.log(display);
 
 //Put number in the display
 function displayNumber() {
 	display.value += this.id;
 }
 
-//Get Balance Functionality
-function getBalance() {
-	display.value = calc.recallMemory();
+
+// Deposit Cash; adds input to memory
+function depositCash() {
+	parseFloat(display.value);
+	console.log(typeof display.value);
+	console.log('despositing...');
+	//insert validation here?
+	calc.saveMemory(calc.load());
+	console.log('memory = ', calc.saveMemory());
+	return display.value = total;
 }
 
 
@@ -77,7 +82,7 @@ var expressionArray = display.value.split(' ');
 
 //Clear Total
 function clearTotal() {
-	display.value = null;
+	display.value = 0;
 } 
 
 //Add Event Listeners to EACH button

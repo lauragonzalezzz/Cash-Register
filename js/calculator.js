@@ -2,13 +2,13 @@
 
 function calcModule(){
   var total = 0;
-  var memory = 2;
+  var memory = 0;
 
 
   function load(x){
-    if( typeof x !== 'number'){
-      throw new Error('not a number'); 
-    }
+    // if( typeof x !== 'number'){
+    //   throw new Error('not a number'); 
+    // }
       
     total = x;
     display.value = total;
@@ -17,48 +17,51 @@ function calcModule(){
   }
 
   function getTotal(){
+    if (typeof total !== 'number') {
+      throw new Error('This is not a number');
+    }
    return total;
   }
 
     function add(a, b){
-      // if( typeof x !== 'number'){
-      //   throw new Error('not a number'); 
-      // }
+      if( typeof a !== 'number' || typeof b !== 'number'){
+        throw new Error('not a number'); 
+      }
       total = a + b;
       return total;
     }
 
     function subtract(a, b){
-      // if( typeof x !== 'number'){
-      //   throw new Error('not a number'); 
-      // }
+      if( typeof a !== 'number' || typeof b !== 'number'){
+        throw new Error('not a number'); 
+      }
       total = a - b; 
       return total;
     }
 
     function multiply(a, b){
-      // if( typeof x !== 'number'){
-      //   throw new Error('not a number'); 
-      // }
+      if( typeof a !== 'number' || typeof b !== 'number'){
+        throw new Error('not a number'); 
+      }
       total= a * b;
       return total;
     }
 
     function divide(a, b){
-      //  if( typeof x !== 'number'){
-      //   throw new Error('not a number'); 
-      // }
+       if( typeof a !== 'number' || typeof b !== 'number'){
+        throw new Error('not a number'); 
+      }
       total = a / b;
       return total; 
     }
 
     function recallMemory(){
-      return memory; 
+      console.log('recallMemory is working', memory);
+      return display.value = memory; 
     }
 
     function saveMemory(){
-      memory = total;
-      return memory;
+      return display.value += memory;
     }
 
     function clearMemory(){
