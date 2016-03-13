@@ -5,42 +5,48 @@ function displayNumber() {
 	display.value += this.id;
 }
 
-//Store number to memory for calculation
-function storeDisplay(){
-	total = display.value;
+// //Store number to memory for calculation
+// function storeDisplay(){
+// 	total = display.value;
+// }
+
+//Get Balance Functionality
+function getBalance() {
+	display.value = calc.recallMemory();
 }
+console.log(calc.recallMemory());
+console.log(display.value);
 
+//Check if there is more than one operator in the expression
+function invalidateMultipleOperators(){
+var expressionArray = display.value.split(' ');
 
-function evaluateExpression() {
-
-	var expressionArray = display.value.split(' ');
+	var indices = [];
 	
-	//Check if there is more than one operator in the expression
-	function invalidateMultipleOperators(){
-
-		var indices = [];
-		for (var i = 0; i < expressionArray.length; i++) {
-			indices.push(expressionArray[i].indexOf('+'));
-			}
+	for (var i = 0; i < expressionArray.length; i++) {
+		indices.push(expressionArray[i].indexOf('+'));
+		}
 			
-			if (indices.length > 1) {
-				display.value = "One expression only, please!";
-			}
-			return false;
-	}
-	
-	invalidateMultipleOperators();
-	
-	if (expressionArray[1] === '+') {
-		display.value = calc.add(Number(expressionArray[0]), Number(expressionArray[2]));
-	} else if (expressionArray[1] === '-') {
-		display.value = calc.subtract(Number(expressionArray[0]), Number(expressionArray[2]));
-	} else if (expressionArray[1] === '*') {
-		display.value = calc.multiply(Number(expressionArray[0]), Number(expressionArray[2]));
-	} else if (expressionArray[1] === '/') {
-		display.value = calc.divide(Number(expressionArray[0]), Number(expressionArray[2]));
-	}
+		if (indices.length > 2) {
+			display.value = "One expression only, please!";
+		}
+		return evaluateExpression(expressionArray);
 }
+
+		function evaluateExpression(arr) {
+					
+			if (arr[1] === '+') {
+				display.value = calc.add(Number(arr[0]), Number(arr[2]));
+			} else if (arr[1] === '-') {
+				display.value = calc.subtract(Number(arr[0]), Number(arr[2]));
+			} else if (arr[1] === '*') {
+				display.value = calc.multiply(Number(arr[0]), Number(arr[2]));
+			} else if (arr[1] === '/') {
+				display.value = calc.divide(Number(arr[0]), Number(arr[2]));
+			}
+}
+
+
 
 
 
@@ -83,5 +89,5 @@ var divide = document.getElementById(' / ');
 divide.addEventListener('click', displayNumber);
 
 var equals = document.getElementById('=');
-equals.addEventListener('click', evaluateExpression);
+equals.addEventListener('click', invalidateMultipleOperators);
 
