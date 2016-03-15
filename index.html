@@ -9,38 +9,38 @@
     <div id= "calcBody">
 		<input type = "textarea" maxlength = "10" id = "display">
 	    <div class = "firstRow">
-			<input type = "button" value = "1" id = "1">
-			<input type = "button" value = "2" id = "2">
-			<input type = "button" value = "3" id = "3">
-			<input type = "button" value = "/" id = " / ">
-			<input type = "button" value = "clear" id = "clear" onclick="clearTotal()">
+			<input type = "button" value = "1" id = "1" onclick ='module.keyClick()'>
+			<input type = "button" value = "2" id = "2" onclick ='keyClick()'>
+			<input type = "button" value = "3" id = "3" onclick ='keyClick()'>
+			<input type = "button" value = "/" id = " / " onclick ='keyClick()'>
+			<input type = "button" value = "clear" id = "clear" onclick="clearEverything()">
 		</div>
 		<div class = "secondRow">
-			<input type = "button" value = "4" id = "4">
-			<input type = "button" value = "5" id = "5">
-			<input type = "button" value = "6" id = "6">
-			<input type = "button" value = "*" id = " * ">
-			<input type = "button" value = "get balance" id = "getBalance" onclick="calc.recallMemory()">
+			<input type = "button" value = "4" id = "4" onclick ='keyClick()'>
+			<input type = "button" value = "5" id = "5" onclick ='keyClick()'>
+			<input type = "button" value = "6" id = "6" onclick ='keyClick()'>
+			<input type = "button" value = "*" id = " * " onclick ='keyClick()'>
+			<input type = "button" value = "get balance" id = "getBalance" onclick="getBalance()">
 		</div>
 		<div class = "thirdRow">
-			<input type = "button" value = "7" id = "7">
-			<input type = "button" value = "8" id = "8">
-			<input type = "button" value = "9" id = "9">
-			<input type = "button" value = "-" id = " - ">
+			<input type = "button" value = "7" id = "7" onclick ='keyClick()'>
+			<input type = "button" value = "8" id = "8" onclick ='keyClick()'>
+			<input type = "button" value = "9" id = "9" onclick ='keyClick()'>
+			<input type = "button" value = "-" id = " - " onclick ='keyClick()'>
 			<input type = "button" value = "deposit cash" id = "depositCash" onclick="depositCash()">
 		</div>
 		<div class = "fourthRow">	
-			<input type = "button" value = "00" id = "00">
-			<input type = "button" value = "0" id = "0">
-			<input type = "button" value = "." id = ".">
-			<input type = "button" value = "+" id = " + ">
-			<input type = "button" value = "withdraw cash" id = "withdrawCash">
+			<input type = "button" value = "00" id = "00" onclick ='keyClick()'>
+			<input type = "button" value = "0" id = "0" onclick ='keyClick()'>
+			<input type = "button" value = "." id = "." onclick ='keyClick()'>
+			<input type = "button" value = "+" id = " + " onclick ='keyClick()'>
+			<input type = "button" value = "withdraw cash" id = 'withdrawCash' onclick ="withdrawCash()">
 		</div>
 		<div class = "fifthRow">
-			<input type = "button" value = "=" id = "=" class="equals">
+			<input type = "button" value = "=" id = "=" class="equals" onclick="showTotal()">
 		</div>
 <script src="./js/calculator.js" type="text/javascript"></script>
-<script src="./js/cash_register.js" type="text/javascript"></script>
+<script src="./doOver.js" type="text/javascript"></script>
 </body>
 </html>
 

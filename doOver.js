@@ -4,6 +4,7 @@ var output = 'output';
 
 
 function cashRegister(){
+
 	var total = 0;
 	var memory = 0;
 	var firstNum = null;
@@ -60,9 +61,30 @@ function cashRegister(){
 	}
 
 	function depositCash(firstNum) {
-		
+		if (firstNum > 0) {	
+			firstNum += memory;
+		}
+		return output = memory;
 	}
 
+	function withdrawCash(firstNum) {
+		if (firstNum <= memory && firstNum > 0) {
+			memory - firstNum;
+			return getBalance();
+		}
+	}
+
+	function getBalance() {
+		return output = memory;
+	}
+
+	return {
+		keyClick : keyClick()
+	}
+
+};
+
+var module = cashRegister();
 
 	// key onclick registers to output until operator !!vaidate if input === null, input = key, otherwise += key
 	// number output is stored in var firstNum and in total !!validate
@@ -76,15 +98,6 @@ function cashRegister(){
 	// total is display as output
 
 	//clear sets display value to null
-// depositCash adds input value to memory !!validate not negative
-// withdrawCash subtracts input value from memory !!validate not negative, not more than memory
-// getBalance displays memory
-
-
-
-
-
-
-
-
-}
+	// depositCash adds input value to memory !!validate not negative
+	// withdrawCash subtracts input value from memory !!validate not negative, not more than memory
+	// getBalance displays memory
